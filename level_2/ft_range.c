@@ -6,7 +6,8 @@ int	*ft_range(int start, int end)
 	int	*range;
 	int	i;
 	int	size;
-
+	int	step;
+	
 	i = 0;
 	size = end - start;
 	if (size < 0)
@@ -15,12 +16,14 @@ int	*ft_range(int start, int end)
 	range = malloc(sizeof(int) * (size));
 	if (!range)
 		return (NULL);
+	if (start <= end)
+		step = 1;
+	else
+		step = -1;
 	while (i < size)
 	{	
-		if (start <= end)
-			range[i] = start++;
-		else
-			range[i] = start--;
+		range[i] = start;
+		start = start + step;
 		i++;
 	}
 	return (range);
