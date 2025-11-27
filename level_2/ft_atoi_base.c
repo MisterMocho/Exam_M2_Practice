@@ -10,7 +10,6 @@ int main(void)
 	return (0);
 }
 */
-
 int ft_atoi_base(const char *str, int str_base)
 {
     int result;
@@ -21,7 +20,9 @@ int ft_atoi_base(const char *str, int str_base)
     result = 0;
     i = 0;
     sign = 1;
-
+	
+	while (str[i] == ' ' || (str[i] >= 9 && str[i] <= 13))
+		i++;
     if (str[i] && (str[i] == '-' || str[i] == '+'))
     {
         if (str[i] == '-')
@@ -38,18 +39,17 @@ int ft_atoi_base(const char *str, int str_base)
 
 int ft_get_digit(char c, int str_base)
 {
-    int max_digit;
+    int digit;
 
-    if (str_base <= 10)
-        max_digit = str_base - 1 + '0';
-    else
-        max_digit = str_base - 11 + 'a';
-    if (c >= '0' && c <= '9' && c <= max_digit)
-        return(c - '0');
-    else if (c >= 'A' && c <= 'F' && c <= max_digit - 32)
-        return (c - 'A' + 10);
-    else if (c >= 'a' && c <= 'f' && c <= max_digit)
-        return (c - 'a' + 10);
+    if (c >= '0' && c <= '9')
+        digit = (c - '0');
+    else if (c >= 'A' && c <= 'Z') // The exam asks up to and including base 16, this code accepts up to a base of 36.
+        digit = (c - 'A' + 10);	   // If you feel the need to the exactly what the exam asks, replace 'Z' with 'F' and 'z' with 'f'.
+    else if (c >= 'a' && c <= 'z') // That's it :D
+        digit = (c - 'a' + 10);
     else
         return (-1);
+	if (digit >= str_base)
+		return (-1);
+	return (digit);
 }
