@@ -7,7 +7,7 @@ char	*ft_strpbrk(const char *s1, const char *s2)
 	char	*p;
 
 	i = 0;
-	*p = (char *)s1;
+	p = (char *)s1;
 	while (s1[i])
 	{
 		j = 0;
