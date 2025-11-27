@@ -21,15 +21,15 @@ int main(int argc, char **argv)
         i++;
     while (argv[1][i])
     {
-        while (!is_space(argv[1][i]))
+        while (argv[1][i] && !is_space(argv[1][i]))
         {
             write(1, &argv[1][i], 1);
             i++;
         }
-        if (argv[1][i] && is_space(argv[1][i]))
-            write(1, "   ", 3);
         while (argv[1][i] && is_space(argv[1][i]))
             i++;
+        if (argv[1][i])
+            write(1, "   ", 3);
     }
     write(1, "\n", 1);
     return (0);
