@@ -1,5 +1,9 @@
 #include <unistd.h>
 
+//this version i have made is fragile and it passes the exam, because in the subject they guarantee that,
+//the tests they make, dont have trailing spaces before or after and have only 1 space between words.
+//if the subject changes, this code won't work, you will have a different way in order to skip the spaces properly!
+
 int	ft_strlen(const char *str)
 {
 	int	i;
