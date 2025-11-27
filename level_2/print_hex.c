@@ -42,7 +42,8 @@ int	main(int argc, char **argv)
 		return (0);
 	}
 	i = ft_atoi(argv[1]);
-	ft_putnbr_base((long)i, "0123456789abcdef");
+	if (i >= 0)
+		ft_putnbr_base((long)i, "0123456789abcdef");
 	write(1, "\n", 1);
 	return (0);
 }
