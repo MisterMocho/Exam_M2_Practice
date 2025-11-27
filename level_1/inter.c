@@ -21,6 +21,7 @@ int	main(int argc, char **argv)
 			{
 				found[(int)argv[1][i]] = 1;
 				write(1, &argv[1][i], 1);
+				break ;
 			}
 			j++;
 		}
