@@ -2,7 +2,7 @@ int	ft_atoi(const char *str)
 {
 	int	i;
 	int	signal;
-	int	result;
+	long	result;
 
 	i = 0;
 	signal = 1;
@@ -20,5 +20,5 @@ int	ft_atoi(const char *str)
 		result = result * 10 + (str[i] - '0');
 		i++;
 	}
-	return (result * signal);
+	return ((int)(result * signal));
 }
