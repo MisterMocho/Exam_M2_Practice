@@ -10,12 +10,15 @@ int	main(int argc, char **argv)
 	int	result;
 	int not_prime;
 
-	if (argc != 2 || ft_atoi(argv[1]) <= 1)
+	if (argc == 2)
+		i = ft_atoi(argv[1]);
+	else
+		i = 0;
+	if (i <= 0)
 	{
-		write(1, "0", 1);
+		write(1, "0\n", 2);
 		return (0);
 	}
-	i = ft_atoi(argv[1]);
 	result = 0;
 	while (i > 1)
 	{
